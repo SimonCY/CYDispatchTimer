@@ -1,6 +1,9 @@
 # CYDispatchTimer
 
-CYDispatchTimer是基于GCD封装的weakTimer，使用效果与NSTimer类似，但是更简单、安全，不会引发对taget强引用而造成的内存泄漏，基于nameMap进行管理、block处理触发方法，使用更高效。
+  CYDispatchTimer是基于GCD封装的weakTimer，使用效果与NSTimer类似，但是更简单、安全，不会引发对taget强引用而造成的内存泄漏，基于nameMap进行管理、block处理触发方法，使用更高效。
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE)&nbsp;
+[![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
+
 -----------------------------------------------------
 
 ## Usage
@@ -10,7 +13,7 @@ CYDispatchTimer是基于GCD封装的weakTimer，使用效果与NSTimer类似，�
 ```objc
 if (![CYDispatchTimer isTimerExistWithName:CameraTimeViewTimerName]) {
  
- [CYDispatchTimer scheduledDispatchTimerInGlobalQueueWithName:CameraTimeViewTimerName timeInterval:1 repeats:YES action:^{
+    [CYDispatchTimer scheduledDispatchTimerInGlobalQueueWithName:CameraTimeViewTimerName timeInterval:1 repeats:YES action:^{
         
     //code here...
     
@@ -22,8 +25,8 @@ if (![CYDispatchTimer isTimerExistWithName:CameraTimeViewTimerName]) {
   
 ```objc
 if ([CYDispatchTimer isTimerExistWithName:CameraTimeViewTimerName]) {
-  
-  [CYDispatchTimer cancelTimerWithName:CameraTimeViewTimerName];
+  
+    [CYDispatchTimer cancelTimerWithName:CameraTimeViewTimerName];
 }
 ```
 
