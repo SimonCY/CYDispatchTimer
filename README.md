@@ -10,7 +10,7 @@
 ## Usage
 
 
-### 1.开启定时器
+#### 1.开启定时器
 ```objc
 if (![CYDispatchTimer isTimerExistWithName:CameraTimeViewTimerName]) {
  
@@ -22,7 +22,7 @@ if (![CYDispatchTimer isTimerExistWithName:CameraTimeViewTimerName]) {
 }
 ```
     
-### 2.停止定时器
+#### 2.停止定时器
   
 ```objc
 if ([CYDispatchTimer isTimerExistWithName:CameraTimeViewTimerName]) {
