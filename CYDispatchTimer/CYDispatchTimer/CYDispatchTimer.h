@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ `CYDidpatchTimer` works similar to an `NSTimer` but easier and doesn't retain the target.
+ This timer is implemented using GCD, so you can schedule and unschedule it on arbitrary queues (unlike regular NSTimers!)
+ */
 @interface CYDispatchTimer : NSObject
 
 + (BOOL)isTimerExistWithName:(NSString *)timerName;
 
 + (dispatch_source_t)timerWithName:(NSString *)timerName;
+
+
 
 + (void)scheduledDispatchTimerInMainQueueWithName:(NSString *)timerName
                                      timeInterval:(double)interval

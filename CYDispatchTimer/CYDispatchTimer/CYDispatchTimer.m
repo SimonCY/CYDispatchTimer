@@ -54,11 +54,14 @@ static NSMutableDictionary *_timerContainer;
     }
     
     dispatch_source_t timer = [self timerWithName:timerName];
-    if (!timer) {
+    if (timer) {
+        NSLog(@"the timer named %@ is exist",timerName);
+        return;
+    } else {
         timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-        dispatch_resume(timer);
         [self timerContainer][timerName] = timer;
     }
+    
     dispatch_source_set_timer(timer, dispatch_walltime(NULL,0), interval * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
     
     __weak typeof(self) weakSelf = self;
@@ -69,6 +72,7 @@ static NSMutableDictionary *_timerContainer;
             [weakSelf cancelTimerWithName:timerName];
         }
     });
+    dispatch_resume(timer);
 }
 
 + (void)cancelTimerWithName:(NSString *)timerName {
